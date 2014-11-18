@@ -55,6 +55,7 @@
 
 					that.contentElement.append(args.element);
 
+					// History API
 					history.pushState(history.state, id, that.config.ui.screens[id].uri);
 
 					deferred.resolve();

@@ -34,12 +34,49 @@
 
 						var screenElement = $(text);
 
-						if(typeof args == "object" && args.hasOwnProperty("viewModel"))
-							ko.applyBindings(args.viewModel, screenElement[0]);
-
-						deferred.resolve({ element: screenElement });
+						that.loadControlsAsync(screenElement).done(function() {
+							deferred.resolve({ element: screenElement });
+						});
 					});
 				});
+
+			return deferred.promise();
+		},
+
+		loadControlsAsync: function(screenElement) {
+			var deferred = new $.Deferred();
+			var controlElements = screenElement.siblings("[data-spa-control]");
+			var controlSources = [];
+			var controlNames = [];
+			var that = this;
+
+			controlElements.each(function(controlIndex, controlElement) {
+				controlNames.push(controlElement.getAttribute("data-spa-control"));
+				controlSources.push("/js/controls/" + controlElement.getAttribute("data-spa-control") + ".js");
+			});
+
+			controlSources.push(function() {
+				var controlLoadPromises = [];
+
+				controlNames.forEach(function(controlName) {
+					var control = new app.controls[controlName]({ screen: that, name: controlName });
+					controlLoadPromises.push(control.loadAsync());
+				});
+
+				$.when.apply($, controlLoadPromises).done(function() {
+					var controlIndex = 0;
+
+					for(var controlPromiseArgIndex in arguments) {
+						$(controlElements[controlIndex]).replaceWith(arguments[controlPromiseArgIndex].element);
+
+						controlIndex++;
+					}
+				});
+
+				deferred.resolve();
+			});
+
+			head.load.apply(window, controlSources);
 
 			return deferred.promise();
 		}
