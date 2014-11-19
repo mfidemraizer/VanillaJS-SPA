@@ -1,0 +1,1 @@
+(function(){dust.register("app_views_ProductList",body_0);function body_0(chk,ctx){return chk.w("<div class=\"productlist\"><span data-bind=\"text: someText\"></span><ol data-bind=\"foreach: items\"><li data-bind=\"text: $data\"></li></ol></div>");}body_0.__dustBody=!0;return body_0;})();
