@@ -11,7 +11,7 @@ namespace App.Api
 {
     public sealed class StaticFileController : ApiController
     {
-        [HttpGet, Route("{*path}")]
+        [HttpGet, Route("{*path:regex(.+(?:js|css|less|html|json)$)}")]
         public HttpResponseMessage GetStaticFile(string path)
         {
             if(string.IsNullOrEmpty(path) || !Path.HasExtension(path))

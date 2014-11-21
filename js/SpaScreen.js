@@ -28,11 +28,11 @@
 
 			$.getJSON("/resources/" + this.id + "Screen." + $.cookies.get("app.culture") + ".json")
 				.done(function(resources) {
-					dust.render("app_views_" + that.id, { resources: resources }, function(err, text) {
+					dust.render("app_views_" + that.id.toLowerCase(), { resources: resources }, function(err, text) {
 						if(err != null)
 							throw Error(err);
 
-						var screenElement = $(text);
+						var screenElement = $("<div />").addClass("spa-screen-content").append(text);
 
 						that.loadControlsAsync(screenElement).done(function() {
 							deferred.resolve({ element: screenElement });
@@ -45,7 +45,7 @@
 
 		loadControlsAsync: function(screenElement) {
 			var deferred = new $.Deferred();
-			var controlElements = screenElement.siblings("[data-spa-control]");
+			var controlElements = screenElement.find("[data-spa-control]");
 			var controlSources = [];
 			var controlNames = [];
 			var that = this;
@@ -71,9 +71,9 @@
 
 						controlIndex++;
 					}
-				});
 
-				deferred.resolve();
+					deferred.resolve();
+				});
 			});
 
 			head.load.apply(window, controlSources);

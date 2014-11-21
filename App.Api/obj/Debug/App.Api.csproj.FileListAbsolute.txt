@@ -19,3 +19,8 @@ C:\Users\mfidemraizer\Desktop\app\App.Api\bin\Debug\System.Web.Http.Owin.xml
 C:\Users\mfidemraizer\Desktop\app\App.Api\obj\Debug\App.Api.csprojResolveAssemblyReference.cache
 C:\Users\mfidemraizer\Desktop\app\App.Api\obj\Debug\App.Api.exe
 C:\Users\mfidemraizer\Desktop\app\App.Api\obj\Debug\App.Api.pdb
+C:\Users\mfidemraizer\Desktop\app\App.Api\bin\Debug\StackExchange.Redis.dll
+C:\Users\mfidemraizer\Desktop\app\App.Api\bin\Debug\StackExchange.Redis.pdb
+C:\Users\mfidemraizer\Desktop\app\App.Api\bin\Debug\StackExchange.Redis.xml
+C:\Users\mfidemraizer\Desktop\app\App.Api\bin\Debug\Microsoft.AspNet.SignalR.Client.dll
+C:\Users\mfidemraizer\Desktop\app\App.Api\bin\Debug\Microsoft.AspNet.SignalR.Client.xml

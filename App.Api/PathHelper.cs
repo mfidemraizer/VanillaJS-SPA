@@ -14,7 +14,7 @@ namespace App.Api
         {
             string extension = Path.GetExtension(path);
 
-            switch(extension)
+            switch (extension)
             {
                 case ".js":
                     return new MediaTypeHeaderValue("text/javascript");
@@ -27,6 +27,9 @@ namespace App.Api
 
                 case ".json":
                     return new MediaTypeHeaderValue("application/json");
+
+                case ".less":
+                    return new MediaTypeHeaderValue("text/css");
 
                 default:
                     throw new NotSupportedException();

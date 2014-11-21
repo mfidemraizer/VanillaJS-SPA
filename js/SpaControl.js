@@ -28,7 +28,7 @@
 
 			$.getJSON("/js/controls/resources/" + that.name + "." + $.cookies.get("app.culture") + ".json")
 				.done(function(resources) {
-					dust.render("app_views_" + that.name, { resources: resources }, function(err, text) {
+					dust.render("app_views_" + that.name.toLowerCase(), { resources: resources }, function(err, text) {
 						if(err != null)
 							throw Error(err);
 

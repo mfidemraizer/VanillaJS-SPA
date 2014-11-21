@@ -1,0 +1,7 @@
+C:\Users\mfidemraizer\Desktop\app\Subscriber\bin\Debug\Subscriber.exe.config
+C:\Users\mfidemraizer\Desktop\app\Subscriber\bin\Debug\Subscriber.exe
+C:\Users\mfidemraizer\Desktop\app\Subscriber\bin\Debug\Subscriber.pdb
+C:\Users\mfidemraizer\Desktop\app\Subscriber\bin\Debug\Topshelf.dll
+C:\Users\mfidemraizer\Desktop\app\Subscriber\obj\Debug\Subscriber.csprojResolveAssemblyReference.cache
+C:\Users\mfidemraizer\Desktop\app\Subscriber\obj\Debug\Subscriber.exe
+C:\Users\mfidemraizer\Desktop\app\Subscriber\obj\Debug\Subscriber.pdb

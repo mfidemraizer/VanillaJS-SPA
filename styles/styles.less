@@ -1,0 +1,49 @@
+@import (reference) "mixins.less";
+
+#transitions {
+    .fade-in(@duration: 0.2s) {
+        transition: all ease-in-out @duration;
+        opacity: 1;
+    }
+
+    .fade-out(@duration: 0.2s) {
+        transition: all ease-in-out @duration;
+        opacity: 0;
+    }
+}
+
+.nice-text {
+    font-size: 1.1em;
+    font-weight: bold;
+
+    &.fade-in {
+        #transitions .fade-in;
+    }
+}
+
+#content {
+    &:extend(.nice-text);
+
+    a {
+        font-size: 1.2em;
+        color: blue;
+
+        &:hover {
+        }
+    }
+
+    .btn {
+        &:extend(.nice-text);
+
+        &.active {
+        }
+
+        &.pressed {
+        }
+    }
+}
+
+
+
+body {
+}

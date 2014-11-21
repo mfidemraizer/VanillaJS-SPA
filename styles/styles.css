@@ -1,0 +1,14 @@
+.nice-text,
+#content,
+#content .btn {
+  font-size: 1.1em;
+  font-weight: bold;
+}
+.nice-text.fade-in {
+  transition: all ease-in-out 0.2s;
+  opacity: 1;
+}
+#content a {
+  font-size: 1.2em;
+  color: blue;
+}

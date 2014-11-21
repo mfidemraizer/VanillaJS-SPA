@@ -27,13 +27,26 @@
 
 		this._control = args.control;
 
+		this.products = ko.observableArray();
 		this.someText = ko.observable("hola");
 		this.items = ko.observableArray(["uno", "dos", "tres"]);
+
+		this.loadProductsAsync();
 	};
 
 	app.controls.ProductListViewModel.prototype = {
 		get control() {
 			return this._control;
+		},
+
+		loadProductsAsync: function() {
+			var that = this;
+
+			return $.getJSON("/v1/products").done(function(products) {
+				products.forEach(function(product) {
+					that.products.push(product);
+				});
+			});
 		}
 	};
 })(app, dust, jQuery);

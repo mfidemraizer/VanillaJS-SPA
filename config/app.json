@@ -2,7 +2,8 @@
 	"ui": {
 		"defaultScreenId": "home",
 		"screens": {
-			"home": { "uri": "/home" }
+			"home": { "uri": "/home" },
+			"productCreation": { "uri": "/createproduct"}
 		}
 	}
 }

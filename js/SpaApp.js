@@ -28,12 +28,44 @@
 					that._config = config;
 					that._contentElement = $("#content");
 
+					that.initializeMasterViewLinks();
+
 					that.navigateToAsync(that.config.ui.defaultScreenId).done(function() {
 						deferred.resolve();
+
+						that.listenRealTimeNotifications();
 					});
 				});
 
 				return deferred.promise();
+			},
+
+			initializeMasterViewLinks: function() {
+				var links = $("body > header > nav a");
+				var that = this;
+
+				links.each(function(index, element) {
+					element = $(element);
+
+					element.on("click", { viewId: element.attr("href").replace("#", "") }, function(e) {
+						that.navigateToAsync(e.data.viewId);
+					});
+
+					element.removeAttr("href");
+				});
+			},
+
+			listenRealTimeNotifications: function() {
+				$.connection.hub.url = "http://localhost:9555/signalr";
+				 var productHub = $.connection.productHub;
+            
+	            productHub.client.productAdded = function (name) {
+	            	alert("There's a new product called '" + name + "'!");
+	            };
+
+	            $.connection.hub.start().done(function () {
+                	productHub.server.notifyProductCreated("test");
+	            });
 			},
 
 			loadAppConfigAsync: function() {
@@ -65,7 +97,7 @@
 			},
 
 			onNavigationChange: function(e) {
-				debugger;
+				// Do some stuff when user or code goes back or forward on current site's history
 			}
 		};
 

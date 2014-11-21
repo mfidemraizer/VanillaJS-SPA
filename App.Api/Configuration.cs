@@ -11,7 +11,7 @@ namespace App.Api
         {
             //Services.Add(typeof(IExceptionHandler), null);
 
-            //Formatters.Insert(0, new JsonNetMediaTypeFormatter());
+            Formatters.Insert(0, new JsonNetMediaTypeFormatter());
             Filters.Add(new CultureFilterAttribute());
             this.MapHttpAttributeRoutes();
         }
